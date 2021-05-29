@@ -17,6 +17,7 @@ try {
         credentialsId: credentialsId,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+        PATH: '/home/ec2-user/terraform_install/terraform'
       ]]) {
         ansiColor('xterm') {
           sh 'terraform init'
