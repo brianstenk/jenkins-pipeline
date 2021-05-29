@@ -16,5 +16,5 @@ variable "ami" {
   description = "Base AMI to launch the instances"
 
   # Bitnami NGINX AMI
-  default = "terraform-jenkins-role"
+  default = "ami-021acbdb89706aa89"
 }
