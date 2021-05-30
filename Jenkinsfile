@@ -4,19 +4,19 @@ String credentialsId = 'awsCredentials'
 try {
   stage('checkout') {
     node {
-      cleanWs()
-      checkout scm
+      cleanWs() //clean the web space to make sure we are running in a clean folder
+      checkout scm   //checkout the repository -- clone the repo
     }
   }
 
   // Run terraform init
   stage('init') {
     node {
-      withCredentials([[
+      withCredentials([[      //used the withCredentials binding option and then referenced a class
         $class: 'AmazonWebServicesCredentialsBinding',
         credentialsId: credentialsId,
-        accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+        accessKeyVariable: 'AWS_ACCESS_KEY_ID',   //accessed aws keys as env variables
+        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'//this could be in a but this is a simple pipeline
       ]]) {
         ansiColor('xterm') {
           sh 'terraform init'
@@ -29,8 +29,8 @@ try {
   stage('plan') {
     node {
       withCredentials([[
-        $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: credentialsId,
+        $class: 'AmazonWebServicesCredentialsBinding', //this is like a try run showing you what your
+        credentialsId: credentialsId,                  //template file will do
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
