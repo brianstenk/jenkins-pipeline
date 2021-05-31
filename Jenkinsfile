@@ -1,5 +1,5 @@
 // Jenkinsfile
-String credentialsId = 'awsCredntials2'
+String credentialsId = 'awsCredentials2'
 
 try {
   stage('checkout') {

@@ -4,7 +4,7 @@ variable "instance_count" {
 
 variable "key_name" {
   description = "Private key name to use with instance"
-  default     = "amazon1"
+  default     = "terraform-latest-key"
 }
 
 variable "instance_type" {
@@ -16,5 +16,5 @@ variable "ami" {
   description = "Base AMI to launch the instances"
 
   # Red Hat Enterprise AMI
-  default = "ami-0b0af3577fe5e3532"
+  default = "ami-077e31c4939f6a2f3"
 }
